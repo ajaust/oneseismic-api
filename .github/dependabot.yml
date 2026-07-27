@@ -1,0 +1,50 @@
+---
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "quarterly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
+
+  - package-ecosystem: "go"
+    directory: "/"
+    schedule:
+      interval: "quarterly"
+    allow:
+      - dependency-type: "direct"
+    groups:
+      go-deps:
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
+
+  - package-ecosystem: "docker"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "quarterly"
+    groups:
+      docker:
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
+
+  - package-ecosystem: "pip"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "quarterly"
+    groups:
+      pip:
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
